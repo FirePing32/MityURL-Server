@@ -2,6 +2,7 @@ const firebase = require('firebase')
 var express = require('express');
 const serverless = require('serverless-http');
 var app = express();
+const bodyParser = require('body-parser');
 const router = express.Router()
 
 var config = {
@@ -19,7 +20,7 @@ if (!firebase.apps.length) {
     firebase.initializeApp(config);
 }
 
-app.get('/favicon.ico', (req, res) => res.status(204));
+router.get('/favicon.ico', (req, res) => res.status(204));
 
 router.get("/:id",((req,res,next)=>{
     firebase.database().ref('urls/').child(req.params.id).on("value", function (redirect_url) {
@@ -31,11 +32,14 @@ router.get("/:id",((req,res,next)=>{
 
 app.use('/',router)
 
-app.get('/', function(req, res){
+router.get('/', function(req, res){
 
    invalid_method = '{"Error" : "Method not allowed !"}'
    res.send(JSON.parse(invalid_method));
 });
+
+app.use(bodyParser.json());
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);

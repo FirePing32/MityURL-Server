@@ -2,9 +2,10 @@
   "name": "mityurl-server",
   "version": "1.0.0",
   "description": "Server setup for MityURL",
-  "main": "index.js",
+  "main": "functions/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "netlify-lambda build express",
+    "start": "node index.js"
   },
   "keywords": [
     "mityurl"
@@ -12,10 +13,12 @@
   "author": "Prakhar Gurunani",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "firebase": "^7.17.1",
+    "netlify-lambda": "^2.0.1",
     "pug": "^3.0.0",
     "serverless-http": "^2.5.0"
   }
