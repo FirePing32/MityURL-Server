@@ -35,7 +35,9 @@ app.use('/',router)
 router.get('/', function(req, res){
 
    invalid_method = '{"Error" : "Method not allowed !"}'
-   res.send(JSON.parse(invalid_method));
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   res.write(JSON.parse(invalid_method));
+   res.end();
 });
 
 app.use(bodyParser.json());
