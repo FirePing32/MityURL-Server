@@ -34,9 +34,9 @@ app.use('/',router)
 
 router.get('/', function(req, res){
 
-   invalid_method = '{"Error" : "Method not allowed !"}'
+   invalid_method = '<pre><code>{"Error" : "Method not allowed !"}</code></pre>'
    res.writeHead(200, { 'Content-Type': 'text/html' });
-   res.write(JSON.parse(invalid_method));
+   res.write(invalid_method);
    res.end();
 });
 
