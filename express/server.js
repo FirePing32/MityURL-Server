@@ -37,7 +37,5 @@ app.get('/', function(req, res){
    res.send(JSON.parse(invalid_method));
 });
 
-app.use(bodyParser.json());
-
 module.exports = app;
 module.exports.handler = serverless(app);
