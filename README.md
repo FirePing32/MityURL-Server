@@ -1,2 +1,2 @@
-# MityURL-Server
-Backend server for MityURL
+# MityURL Server
+ExpressJS app for managing _MityURL_ Firebase queries
