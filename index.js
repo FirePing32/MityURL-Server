@@ -36,4 +36,4 @@ app.get('/', function(req, res){
    res.send(JSON.parse(invalid_method));
 });
 
-app.listen(1337, "localhost");
+app.listen(3000, () => console.log('Local app listening on port 3000!'));
