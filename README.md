@@ -1,2 +1,2 @@
 # MityURL Server
-ExpressJS app for managing _MityURL_ Firebase queries
+ExpressJS app for managing [_MityURL_](https://github.com/prakhargurunani/MityURL) Firebase queries
